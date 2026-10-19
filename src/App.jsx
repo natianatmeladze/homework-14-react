@@ -2,10 +2,10 @@ import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Header from "./components/header";
-
+import { CartProvider } from "./context/CartProvider";
 function App() {
   return (
-    <>
+    <CartProvider>
       <Header />
 
       <main className="min-h-screen bg-gray-50">
@@ -14,7 +14,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
-    </>
+    </CartProvider>
   );
 }
 

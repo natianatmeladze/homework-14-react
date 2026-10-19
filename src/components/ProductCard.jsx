@@ -1,6 +1,8 @@
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/useCart";
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
   return (
     <article className="group overflow-hidden rounded-xl border border-gray-200 bg-white">
       <div className="aspect-square overflow-hidden bg-gray-100">
@@ -24,8 +26,10 @@ function ProductCard({ product }) {
           </p>
         </div>
 
-        <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-gray-700">
-
+        <button
+          onClick={() => addToCart(product)}
+          className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-gray-700"
+        >
           <ShoppingCart size={17} />
           Add to cart
         </button>

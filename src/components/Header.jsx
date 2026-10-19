@@ -1,7 +1,9 @@
 import { Link } from "react-router";
 import { ShoppingCart, ShoppingBag } from "lucide-react";
+import { useCart } from "../context/useCart";
 
 function Header() {
+  const { totalQuantity } = useCart();
   return (
     <header className="sticky top-0 z-10 border-b bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -25,7 +27,7 @@ function Header() {
             <ShoppingCart size={22} />
             <span>Cart</span>
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-black px-1 text-xs text-white">
-              0
+              {totalQuantity}
             </span>
           </Link>
         </nav>

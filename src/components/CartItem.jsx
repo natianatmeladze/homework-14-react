@@ -1,6 +1,8 @@
 import { Minus, Plus, Trash2 } from "lucide-react";
+import { useCart } from "../context/useCart";
 
-function CartItem({ product}) {
+function CartItem({ product }) {
+  const { removeItem, increase, decrease } = useCart();
   return (
     <article className="flex gap-4 rounded-xl border border-gray-200 bg-white p-4">
       <img
@@ -20,6 +22,7 @@ function CartItem({ product}) {
 
         <div className="mt-3 flex items-center gap-3">
           <button
+            onClick={() => decrease(product)}
             className="rounded-md border border-gray-300 p-2"
             aria-label="Decrease quantity"
           >
@@ -29,6 +32,7 @@ function CartItem({ product}) {
           <span className="min-w-4 text-center">{product.quantity}</span>
 
           <button
+            onClick={() => increase(product)}
             className="rounded-md border border-gray-300 p-2"
             aria-label="Increase quantity"
           >
@@ -36,6 +40,7 @@ function CartItem({ product}) {
           </button>
 
           <button
+            onClick={() => removeItem(product.id)}
             className="ml-auto text-red-500"
             aria-label="Remove product"
           >
