@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
 // import Cart from "./pages/Cart";
-import Header from "./components/header";
+import Header from "./components/Header";
 import { CartProvider } from "./context/CartProvider";
 import { lazy, Suspense } from "react";
 function App() {
